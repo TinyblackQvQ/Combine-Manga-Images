@@ -1,8 +1,10 @@
 # _*_coding:utf-8_*_
 #Made by Tinyblack/攸望汉化组/Youwang Translating Group
 #Made with Pygame and PIL
-#Version alpha 1.0
+#Version alpha 1.01
+#Update:Fixed program crash when click the blank area in selecting images
 #Completed in 2020.8.4 / UTC+8 15:15:00
+#Updated in 2020.8.4 / UTC+8 23:13:00
 import pygame
 import os
 import glob
@@ -179,6 +181,8 @@ while True:
                         mode = 3
                     elif i[1] <= 50:
                         continue
+                    elif i[1] >= len(imagelist)*100 + height:
+                        continue
                     elif imagelist[int((i[1]-height)/100)].selected == True:
                         imagelist[int((i[1]-height)/100)].selected = False
                     else:
@@ -280,5 +284,3 @@ while True:
                 if event.type == pygame.QUIT:
                     exit()
         exit()
-
-#查看 つのしまくじら (@kujira_99)： https://twitter.com/kujira_99?s=09
